@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class MantramBase extends Model
 {
     use HasFactory;
+
+    public function mantrams() {
+        return $this->hasMany(Mantram::class);
+    }
 }
