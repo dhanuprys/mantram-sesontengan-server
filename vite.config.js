@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import laravel, { refreshPaths } from 'laravel-vite-plugin'
 
 export default defineConfig({
@@ -9,7 +10,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/mantram-accordion.js',
                 'resources/js/mantram-audio.js',
-                'resources/js/sidebar.js'
+                'resources/js/sidebar.js',
+                'resources/react/app.jsx'
             ],
             refresh: [
                 ...refreshPaths,
@@ -21,5 +23,6 @@ export default defineConfig({
                 'app/Tables/Columns/**',
             ],
         }),
+        react()
     ],
 })

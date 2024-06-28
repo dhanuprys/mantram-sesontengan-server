@@ -4,45 +4,61 @@ use App\Models\Mantram;
 use App\Models\MantramBase;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $mantramBases = MantramBase::get();
+Route::view('/', 'home');
 
-    return view('home', [
-        'mantrams' => $mantramBases
-    ]);
-});
+Route::prefix('/api')->group(function () {
+    Route::get('/mantram', function () {
+        $output = [];
+        $mantramBases = MantramBase::select(['id', 'name'])->get();
 
-Route::get('/mantram/{mantramBaseId}', function ($mantramBaseId) {
-    $mantramBase = MantramBase::find($mantramBaseId);
-    $mantrams = Mantram::where('mantram_base_id', $mantramBaseId)->get();
+        foreach ($mantramBases as $mantram) {
+            $output[] = [
+                'id' => $mantram->id,
+                'name' => $mantram->name,
+                'mantram_count' => Mantram::where('mantram_base_id', $mantram->id)->count()
+            ];
+        }
 
-    if (!$mantramBase) {
-        return abort(404);
-    }
+        return response()->json($output);
+    });
 
-    return view('mantram-base', [
-        'mantramBase' => $mantramBase,
-        'mantrams' => $mantrams,
-    ]);
-})->name('mantram-base');
+    Route::get('/mantram/{mantramBaseId}', function ($mantramBaseId) {
+        $mantramBase = MantramBase::find($mantramBaseId, ['id', 'name']);
+        $mantrams = Mantram::where('mantram_base_id', $mantramBaseId)
+            ->select([
+                'id',
+                'name',
+                'mantram',
+                'description'
+            ])
+            ->get();
 
-Route::get('/mantram/{mantramBaseId}/{mantramId}', function ($mantramBaseId, $mantramId) {
-    $mantramBase = MantramBase::find($mantramBaseId);
-    $mantram = Mantram::where([
-        'id' => $mantramId,
-        'mantram_base_id' => $mantramBaseId,
-    ])->first();
+        if (!$mantramBase) {
+            return response()->json(null, 404);
+        }
 
-    if (!$mantram) {
-        return abort(404);
-    }
+        return response()->json([
+            'mantram_base' => $mantramBase,
+            'mantram_count' => $mantrams->count(),
+            'mantrams' => $mantrams,
+        ]);
+    })->name('mantram-base');
 
-    return view('mantram-detail', [
-        'mantramBase' => $mantramBase,
-        'mantram' => $mantram
-    ]);
-})->name('mantram-detail');
+    Route::get('/mantram/{mantramBaseId}/{mantramId}', function ($mantramBaseId, $mantramId) {
+        $mantramBase = MantramBase::find($mantramBaseId, ['id', 'name']);
+        $mantram = Mantram::where([
+            'id' => $mantramId,
+            'mantram_base_id' => $mantramBaseId,
+        ])->first();
 
-Route::get('/info', function () {
-    return 'INFO';
+        if (!$mantram) {
+            return response()->json(null, 404);
+        }
+
+        return response()->json([
+            'mantram_base' => $mantramBase,
+            'mantram' => $mantram
+        ]);
+    })->name('mantram-detail');
+
 });
