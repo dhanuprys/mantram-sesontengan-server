@@ -17,13 +17,14 @@ services:
   postgres:
     image: 'postgres:16'
     restart: always
-    ports:
-        - '${FORWARD_DB_PORT:-5432}:5432'
+#    ports:
+#        - '${FORWARD_DB_PORT:-5432}:5432'
     environment:
         POSTGRES_USER: '${DB_USERNAME}'
         POSTGRES_PASSWORD: '${DB_PASSWORD}'
         POSTGRES_DB: '${DB_DATABASE}'
         PGDATA: /var/lib/postgresql/data/pgdata
+        TZ: Asia/Makassar
     volumes:
         - 'mantram-postgres:/var/lib/postgresql/data/pgdata'
     networks:
