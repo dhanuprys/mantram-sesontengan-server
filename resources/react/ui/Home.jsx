@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import HomeHeader from '../components/HomeHeader';
 import useSWRImmutable from 'swr/immutable';
 import axios from 'axios';
+import CardSkeleton from '../components/CardSkeleton';
 
 function MantramBaseCard({ name, mantramBaseId, count }) {
     return (
@@ -40,7 +41,9 @@ function Home() {
                                 name={mantram.name}
                                 count={mantram.mantram_count} />
                         })
-                        : null
+                        : isLoading
+                            ? <CardSkeleton />
+                            : 'Gagal memuat'
                 }
             </div>
         </div>

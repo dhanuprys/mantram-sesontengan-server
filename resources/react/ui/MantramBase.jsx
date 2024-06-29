@@ -3,6 +3,7 @@ import BasicHeader from '../components/BasicHeader';
 import useSWRImmutable from 'swr/immutable';
 import axios from 'axios';
 import { useState } from 'react';
+import CardSkeleton from '../components/CardSkeleton';
 
 function MantramDetailCard({ id, name, mantram, description, mantramBaseId, mantramId, activeId, setActiveId }) {
     const isActive = id === activeId;
@@ -66,7 +67,7 @@ function MantramBase() {
                                     activeId={activeId}
                                     setActiveId={setActiveId} />
                             })
-                            : null
+                            : isLoading && <CardSkeleton />
                     }
                 </div>
             </div>

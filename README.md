@@ -9,11 +9,6 @@ $ docker create --name temp-dms dhanuprys/mantram-sesontengan:latest \
     && docker rm temp-dms
 ```
 
-## Memulai aplikasi
-```bash
-$ docker compose up -d
-```
-
 ## Mengatur file environment (.env)
 Anda dapat membuka konfigurasi environment menggunakan text editor atau menggunakan nano (jika melalui CLI)
 ```bash
@@ -30,6 +25,16 @@ APP_PORT=<angka>
 DB_USERNAME -> Username database
 DB_PASSWORD -> Password database
 DB_DATABASE -> Nama database
+```
+
+## Memulai aplikasi
+```bash
+$ docker compose up -d
+```
+
+## Konfigurasi KEY
+```bash
+$ docker compose exec -ti webapp php artisan key:generate
 ```
 
 ## Melakukan migrasi

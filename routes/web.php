@@ -4,7 +4,8 @@ use App\Models\Mantram;
 use App\Models\MantramBase;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home');
+Route::view('/', 'main');
+Route::view('/mantram{all}', 'main')->where('all', '.*');
 
 Route::prefix('/api')->group(function () {
     Route::get('/mantram', function () {

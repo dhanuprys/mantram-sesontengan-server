@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import BasicHeader from '../components/BasicHeader';
 import useSWRImmutable from 'swr/immutable';
 import { useEffect, useState } from 'react';
+import ParagraphSkeleton from '../components/ParagraphSkeleton';
 
 function AudioPlayer({ audioUrl }) {
     const [isLoading, setLoading] = useState(true);
@@ -91,7 +92,7 @@ function AudioPlayer({ audioUrl }) {
 function MantramDetail() {
     const navigate = useNavigate();
     const { mantramBaseId, mantramId } = useParams();
-    const { data: mantram, error: mantramError } = useSWRImmutable(
+    const { data: mantram, error: mantramError, isLoading } = useSWRImmutable(
         `/api/mantram/${mantramBaseId}/${mantramId}`,
         (url) => axios.get(url).then(response => response.data)
     );
@@ -114,7 +115,7 @@ function MantramDetail() {
                             ? mantram.mantram.mantram.split("\n").map((mantramLine, idx) => {
                                 return <div key={idx}>{mantramLine}</div>
                             })
-                            : null
+                            : <ParagraphSkeleton />
                     }
                 </div>
             </div>
@@ -125,7 +126,7 @@ function MantramDetail() {
                     {
                         mantram
                             ? mantram.mantram.description || 'Deskripsi tidak tersedia'
-                            : null
+                            : <ParagraphSkeleton />
                     }
                 </p>
             </div>
