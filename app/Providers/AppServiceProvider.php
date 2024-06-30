@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (env('APP_ENV', 'production') == 'production') { // use https only if env is production
+            \URL::forceScheme('https');
+        }
+
         // Filament mass assignment
         Model::unguard();
     }
