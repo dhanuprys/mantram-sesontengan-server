@@ -14,13 +14,13 @@ function HomeHeader() {
                 <h1 className="text-xl font-semibold text-white">MANTRAM SESONTENGAN</h1>
             </div>
             <div className={`fixed top-0 left-0 z-[50] w-screen h-screen transition-all flex ${isSidebarOpen ? '' : '-translate-x-[100vw]'}`}>
-                <div className="w-[80vw] md:w-[20vw] h-screen bg-white shadow-2xl flex flex-col p-2">
+                <div className="w-[80vw] md:w-[20vw] h-screen bg-white shadow-2xl flex flex-col p-2 max-h-screen overflow-auto">
                     <div className="flex justify-center p-8 mb-4">
                         <img className="w-[100px] h-[100px]" src="/hindu.png" />
                     </div>
 
                     <div className="flex flex-col">
-                        <h2 className="p-4">Ukuran font</h2>
+                        <h2 className="px-4 py-1">Ukuran font</h2>
                         <div className="pl-4">
                             <div onClick={() => setFontSize('s')} className={`flex items-center gap-2 p-4 rounded hover:cursor-pointer hover:bg-slate-100 ${fontKey === 's' ? 'bg-slate-100' : ''}`}>
                                 <div>
@@ -50,7 +50,7 @@ function HomeHeader() {
                         <div>Info Aplikasi</div>
                     </div>
                 </div>
-                <div className="flex-1 bg-black opacity-20" onClick={() => setSidebarOpen(false)}></div>
+                <div className="flex-1 bg-black opacity-15" onClick={() => setSidebarOpen(false)}></div>
             </div>
         </>
     );
