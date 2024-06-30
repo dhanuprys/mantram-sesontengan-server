@@ -13,8 +13,8 @@ function MantramDetailCard({ id, name, mantram, description, mantramBaseId, mant
             onClick={() => setActiveId(isActive ? null : id)}
             className={`p-4 shadow flex items-center ${isActive ? '!items-start' : ''} gap-2 border rounded-lg border-slate-300 hover:shadow-lg`}>
             <div className="flex-1">
-                <h1 className="text-lg font-semibold">{name}</h1>
-                <p className={`text-sm text-slate-400 ${isActive ? 'hidden' : ''}`}>{(description || mantram).slice(0, 30)}</p>
+                <h1 className="text-[1.25em] font-semibold">{name}</h1>
+                <p className={`text-[0.875em] text-slate-400 ${isActive ? 'hidden' : ''}`}>{(description || mantram).slice(0, 30)}</p>
                 <div className={`${isActive ? '' : 'hidden'}`}>
                     <p className="text-slate-500 mb-6">{description || mantram}</p>
                     <Link to={`/mantram/${mantramBaseId}/${mantramId}`} className="bg-blue-500 hover:bg-blue-300 rounded-xl px-4 py-2 text-white">selengkapnya</Link>
@@ -50,7 +50,7 @@ function MantramBase() {
             <BasicHeader title={mantrams ? mantrams.mantram_base.name : null} secondaryTitle="Jenis Mantra" />
 
             <div className="p-4 flex flex-col gap-2">
-                <h2 className="font-semibold text-xl">Pilih Mantra</h2>
+                <h2 className="font-semibold text-[1.25em]">Pilih Mantra</h2>
                 <p>Terdapat {mantrams ? mantrams.mantram_count : 0} mantram</p>
                 <div className="flex flex-col gap-2 mt-4">
                     {

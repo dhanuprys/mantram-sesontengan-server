@@ -10,7 +10,7 @@ function BasicHeader({ title, secondaryTitle }) {
             </div>
             <div className="flex flex-col">
                 <span className="text-white">{secondaryTitle}</span>
-                <h1 className="text-xl font-semibold text-white">{title}</h1>
+                <h1 className="text-[1.25em] font-semibold text-white">{title}</h1>
             </div>
         </div>
 
