@@ -17,7 +17,7 @@ function MantramDetailCard({ id, name, mantram, description, mantramBaseId, mant
                 <p className={`text-[0.875em] text-slate-400 ${isActive ? 'hidden' : ''}`}>{(description || mantram).slice(0, 30)}</p>
                 <div className={`${isActive ? '' : 'hidden'}`}>
                     <p className="text-slate-500 mb-6">{description || mantram}</p>
-                    <Link to={`/mantram/${mantramBaseId}/${mantramId}`} className="bg-blue-500 hover:bg-blue-300 rounded-xl px-4 py-2 text-white">selengkapnya</Link>
+                    <Link to={`/mantram/${mantramBaseId}/${mantramId}`} className="bg-blue-600 hover:bg-blue-300 rounded-xl px-4 py-2 text-white">selengkapnya</Link>
                 </div>
             </div>
             <span>
