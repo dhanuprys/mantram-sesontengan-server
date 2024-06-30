@@ -110,33 +110,26 @@ function MantramDetail() {
 
             <div className="p-4 flex justify-between items-center">
                 <h2 className="font-semibold text-[1.125em] mb-2">Ukuran font</h2>
-                <div className="flex gap-2">
-
+                <div className="flex items-center gap-2">
                     <div onClick={() => setFontSize('s')} className={`flex items-center gap-2 p-4 rounded hover:cursor-pointer hover:bg-slate-100 ${fontKey === 's' ? 'bg-slate-100' : ''}`}>
-                        <div>
-                            <svg className="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
-                        </div>
+                        <svg className="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
                     </div>
                     <div onClick={() => setFontSize('m')} className={`flex items-center gap-2 p-4 rounded hover:cursor-pointer hover:bg-slate-100 ${fontKey === 'm' ? 'bg-slate-100' : ''}`}>
-                        <div>
-                            <svg className="w-[19px] h-[19px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
-                        </div>
+                        <svg className="w-[19px] h-[19px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
                     </div>
                     <div onClick={() => setFontSize('l')} className={`flex items-center gap-2 p-4 rounded hover:cursor-pointer hover:bg-slate-100 ${fontKey === 'l' ? 'bg-slate-100' : ''}`}>
-                        <div>
-                            <svg className="w-[24px] h-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
-                        </div>
+                        <svg className="w-[24px] h-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z" /></svg>
                     </div>
                 </div>
             </div>
 
             <div className="p-4">
                 <h2 className="font-semibold text-[1.25em] mb-4">Mantram</h2>
-                <div className="text-[1.125em] italic">
+                <div className="text-[1.125em] italic text-slate-600">
                     {
                         mantram
                             ? mantram.mantram.mantram.split("\n").map((mantramLine, idx) => {
-                                return <div key={idx}>{mantramLine}</div>
+                                return <div key={idx} className="hover:font-semibold">{mantramLine}</div>
                             })
                             : <ParagraphSkeleton />
                     }
@@ -145,13 +138,13 @@ function MantramDetail() {
 
             <div className="p-4">
                 <h2 className="font-semibold text-[1.25em] mb-4">Deskripsi</h2>
-                <p>
+                <div className="text-slate-600">
                     {
                         mantram
                             ? mantram.mantram.description || 'Deskripsi tidak tersedia'
                             : <ParagraphSkeleton />
                     }
-                </p>
+                </div>
             </div>
 
             <AudioPlayer audioUrl={mantram ? mantram.mantram.audio_url : null} />
