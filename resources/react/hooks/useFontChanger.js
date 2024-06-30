@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 function useFontChanger() {
     const [fontKey, setFontKey] = useState('m');
-    const fontMap = { s: 14, m: 16, l: 20 };
+    const fontMap = { s: 13, m: 16, l: 20 };
 
     const setFontSize = useCallback((sizeKey) => {
         const selectedKey = fontMap[sizeKey] ? sizeKey : 'm';
