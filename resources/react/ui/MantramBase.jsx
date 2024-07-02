@@ -58,28 +58,29 @@ function MantramBase() {
                                 <p>Terdapat {mantrams.mantram_count} mantram</p>
                             </>
                         )
-                        : (
-                            <div className="flex flex-col justify-center items-center p-6">
-                                <img className="w-[240px] h-[240px]" src="/notfound.jpg" />
-                                <span className="font-semibold">Belum ada mantram yang dibuat</span>
-                            </div>
-                        )
+                        : null
                 }
                 <div className="flex flex-col gap-2 mt-4">
                     {
                         mantrams
-                            ? mantrams.mantrams.map(mantram => {
-                                return <MantramDetailCard
-                                    key={mantram.id}
-                                    id={mantram.id}
-                                    mantramBaseId={mantrams.mantram_base.id}
-                                    mantramId={mantram.id}
-                                    description={mantram.description}
-                                    mantram={mantram.mantram}
-                                    name={mantram.name}
-                                    activeId={activeId}
-                                    setActiveId={setActiveId} />
-                            })
+                            ? mantrams.mantram_count > 0
+                                ? mantrams.mantrams.map(mantram => {
+                                    return <MantramDetailCard
+                                        key={mantram.id}
+                                        id={mantram.id}
+                                        mantramBaseId={mantrams.mantram_base.id}
+                                        mantramId={mantram.id}
+                                        description={mantram.description}
+                                        mantram={mantram.mantram}
+                                        name={mantram.name}
+                                        activeId={activeId}
+                                        setActiveId={setActiveId} />
+                                })
+                                :
+                                <div className="flex flex-col justify-center items-center p-6">
+                                    <img className="w-[240px] h-[240px]" src="/notfound.jpg" />
+                                    <span className="font-semibold">Belum ada mantram yang dibuat</span>
+                                </div>
                             : isLoading && <CardSkeleton />
                     }
                 </div>
