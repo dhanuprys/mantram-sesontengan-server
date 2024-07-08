@@ -8,7 +8,7 @@ Route::view('/', 'main');
 Route::view('/mantram{all}', 'main')->where('all', '.*');
 
 Route::prefix('/api')->group(function () {
-    Route::prefix('v1')->group(function () {
+    Route::prefix('/v1')->group(function () {
         Route::get('/mantram', function () {
             $output = [];
             $mantramBases = MantramBase::select(['id', 'name'])->get();
@@ -39,7 +39,7 @@ Route::prefix('/api')->group(function () {
             }
 
             return response()->json($mantrams);
-        })->name('mantram-base');
+        });
 
         Route::get('/mantram/{mantramBaseId}/{mantramId}', function ($mantramBaseId, $mantramId) {
             $mantram = Mantram::where([
@@ -61,7 +61,7 @@ Route::prefix('/api')->group(function () {
             }
 
             return response()->json($mantram);
-        })->name('mantram-detail');
+        });
     });
 
     Route::get('/mantram', function () {
