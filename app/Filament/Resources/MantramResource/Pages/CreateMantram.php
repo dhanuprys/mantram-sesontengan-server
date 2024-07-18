@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateMantram extends CreateRecord
 {
     protected static string $resource = MantramResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

@@ -56,7 +56,11 @@ class MantramResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('audio_url')
                     ->label('Audio mantram')
-                    ->directory('mantram')
+                    ->directory('mantram'),
+                Forms\Components\TextInput::make('version')
+                    ->label('Revisi')
+                    ->default(1)
+                    ->readOnly()
                 // ->acceptedFileTypes(['.mp3', '.wav', '.ogg'])
             ]);
     }
@@ -68,7 +72,9 @@ class MantramResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mantramBase.name')
-                    ->label('Jenis mantram')
+                    ->label('Jenis mantram'),
+                Tables\Columns\TextColumn::make('version')
+                    ->label('Revisi')
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('mantram_base_id')

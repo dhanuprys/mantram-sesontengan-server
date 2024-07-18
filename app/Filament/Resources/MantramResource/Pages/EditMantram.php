@@ -16,4 +16,16 @@ class EditMantram extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+       $data['version'] = isset($data['version']) ? $data['version'] + 1 : 1;
+
+        return $data;
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
