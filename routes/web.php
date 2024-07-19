@@ -52,6 +52,7 @@ Route::prefix('/api')->group(function () {
                 'mantram',
                 'description',
                 'audio_url',
+                'version',
                 'updated_at'
             ])
             ->first();
