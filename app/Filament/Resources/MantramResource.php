@@ -49,18 +49,19 @@ class MantramResource extends Resource
                     ]),
                 Forms\Components\Textarea::make('description')
                     ->label('Deskripsi')
+                    ->rows(18)
                     ->maxLength(500),
                 Forms\Components\Textarea::make('mantram')
                     ->maxLength(2000)
-                    ->columnSpanFull()
+                    ->rows(18)
                     ->required(),
                 Forms\Components\FileUpload::make('audio_url')
                     ->label('Audio mantram')
                     ->directory('mantram'),
                 Forms\Components\TextInput::make('version')
-                    ->label('Revisi')
-                    ->default(1)
-                    ->readOnly()
+                    ->label('Jumlah Revisi')
+                    ->readOnly() // Make the field read-only
+                    ->extraAttributes(['style' => 'width: 90px !important; background-color: #ecfccb; color: #3f6212 !important; border-radius: 5px; padding: 5px 10px; font-weight: bold;'])
                 // ->acceptedFileTypes(['.mp3', '.wav', '.ogg'])
             ]);
     }
