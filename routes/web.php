@@ -4,6 +4,8 @@ use App\Models\Mantram;
 use App\Models\MantramBase;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/', '/admin/login');
+
 Route::prefix('/api')->group(function () {
     Route::prefix('/v1')->group(function () {
         Route::get('/mantram', function () {
