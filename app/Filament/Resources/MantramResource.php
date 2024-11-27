@@ -60,9 +60,9 @@ class MantramResource extends Resource
                     ->directory('mantram'),
                 Forms\Components\TextInput::make('version')
                     ->label('Jumlah Revisi')
+                    ->default(1)
                     ->readOnly() // Make the field read-only
                     ->extraAttributes(['style' => 'width: 90px !important; background-color: #ecfccb; color: #3f6212 !important; border-radius: 5px; padding: 5px 10px; font-weight: bold;'])
-                // ->acceptedFileTypes(['.mp3', '.wav', '.ogg'])
             ]);
     }
 
