@@ -22,6 +22,7 @@ RUN php artisan config:cache \
     && php artisan route:cache \
     && php artisan view:cache \
     && php artisan optimize \
+    && php artisan  filament:cache-components \
     && php artisan icons:cache
 
 RUN npm install && npm run build
